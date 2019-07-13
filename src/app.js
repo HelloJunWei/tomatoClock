@@ -11,6 +11,12 @@ Vue.use(VueRouter)
 export const router = new VueRouter({
   routes
 })
+router.beforeEach((to, from, next) => {
+  if (to.name === 'detail') {
+    next('/detail/todo')
+  }
+  next()
+})
 new Vue({
   el: '#app',
   router,

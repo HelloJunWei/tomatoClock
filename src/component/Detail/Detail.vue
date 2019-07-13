@@ -2,15 +2,13 @@
   <v-app class="width-100 app">
     <v-container px-0 py-0 width-100 pb-0>
       <v-layout row height-100 px-0 py-0>
-        <v-flex height-100 pink-color></v-flex>
+        <v-flex height-100 blue-color></v-flex>
         <v-flex  height-100 d-flex width-1280>
-          <v-flex left-side pink-color height-100>
-            <app-work-place></app-work-place>
+          <v-flex left-side blue-color height-100>
           </v-flex>
           <v-flex right-side blue-color height-100>
-            <app-icon-place></app-icon-place>
+            <router-view></router-view>
           </v-flex>
-          <app-clock></app-clock>
         </v-flex>
         <v-flex  height-100 blue-color></v-flex>
       </v-layout>
@@ -19,14 +17,8 @@
 </template>
 
 <script>
-import appWorkPlace from './WorkPlace'
-import appIconPlace from './IconPlace'
-import appClock from './Clock'
 export default {
   components: {
-    appWorkPlace,
-    appIconPlace,
-    appClock
   },
   data () {
     return {
@@ -64,9 +56,6 @@ export default {
   position: relative;
   width: 1280px;
   border: 1px solid;
-}
-.pink-color{
-  background-color: #FFEDF7;
 }
 .blue-color{
   background-color: #003164;

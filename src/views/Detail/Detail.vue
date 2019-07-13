@@ -1,12 +1,12 @@
 <template>
-  <div>
-    abc
-  </div>
+  <app-detail></app-detail>
 </template>
 
 <script>
+import appDetail from '../../component/Detail/Detail'
 export default {
   components: {
+    appDetail
   }
 }
 </script>
