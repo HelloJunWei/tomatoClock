@@ -1,5 +1,5 @@
 <template>
-  <v-container width-100>
+  <v-container width-100 px-0 py-0>
     <v-layout row wrap>
       <v-flex lg12>
         <v-flex lg6>
@@ -19,7 +19,7 @@
             25:00
           </p>
         </v-flex>
-        <v-flex lg8 todo-list-side>
+        <v-flex lg6 todo-list-side>
           <v-flex todo-list>
             <v-checkbox value="Google" color="#003164" class="checkbox-h">
               <template v-slot:label>
@@ -56,7 +56,7 @@
               </template>
             </v-checkbox>
           </v-flex>
-          <span class="more">
+          <span class="more hover-line">
             MORE
           </span>
         </v-flex>
@@ -154,11 +154,35 @@ export default {
     .more{
       margin-top: 5px;
       float: right;
-      margin-right: 38px;
       color: #FF4384;
       font-weight: 550;
       cursor: pointer;
     }
+  }
+}
+.hover-line {
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  overflow: hidden;
+  &::before{
+    content: '';
+    position: absolute;
+    z-index: -1;
+    left: 51%;
+    right: 51%;
+    bottom: 0;
+    background: #FF4384;
+    height: 2px;
+    transition-property: left, right;
+    transition-duration: .1s;
+    transition-timing-function: ease-out;
+  }
+  &:hover:before, &:focus:before, &:active:before{
+    left: 0;
+    right: 0;
   }
 }
 </style>
