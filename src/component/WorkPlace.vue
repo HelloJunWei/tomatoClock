@@ -5,7 +5,7 @@
         <v-flex lg6>
           <v-text-field label="ADD A NEW MISSION" background-color="white" color="#FF4384" solo class="text-input">
             <template v-slot:append>
-              <i class="fas fa-plus icon" @click="test"></i>
+              <i class="fas fa-plus icon"></i>
             </template>
           </v-text-field>
         </v-flex>
@@ -78,9 +78,6 @@ export default {
   mounted () {
   },
   methods: {
-    test () {
-      // alert('abc')
-    }
   }
 }
 </script>

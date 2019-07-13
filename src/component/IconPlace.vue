@@ -4,7 +4,7 @@
       <div class="icon-list">
         <i class="fas fa-list icon-margin" @click="$router.push('/detail/todo')"></i>
         <i class="fas fa-chart-bar icon-margin" @click="$router.push('/detail/analytics')"></i>
-        <i class="fas fa-music icon-margin"></i>
+        <i class="fas fa-music icon-margin" @click="$router.push('/detail/ringtones')"></i>
       </div>
       <p class="logo">POMODORO</p>
     </div>

@@ -5,9 +5,13 @@
         <v-flex height-100 blue-color></v-flex>
         <v-flex  height-100 d-flex width-1280>
           <v-flex left-side blue-color height-100>
+            <app-operation></app-operation>
+          </v-flex>
+          <v-flex center-side blue-color height-100>
+            <router-view></router-view>
           </v-flex>
           <v-flex right-side blue-color height-100>
-            <router-view></router-view>
+            <app-back-icon></app-back-icon>
           </v-flex>
         </v-flex>
         <v-flex  height-100 blue-color></v-flex>
@@ -17,8 +21,12 @@
 </template>
 
 <script>
+import appBackIcon from './BackIcon'
+import appOperation from './Operation'
 export default {
   components: {
+    appBackIcon,
+    appOperation
   },
   data () {
     return {
@@ -41,12 +49,17 @@ export default {
   height: 800px;
 }
 .left-side{
-  width: calc(1280px - 450px);
-  padding-top: 48px;
+  width: calc(1280px - 445px - 275px);
   padding-left: 85px;
 }
+.center-side{
+  width: 445px
+}
 .right-side{
-  width: 450px
+  display: flex;
+  justify-content: flex-end;
+  width: 275px;
+  padding-right: 85px;
 }
 .width-100{
   max-width: 100%;
