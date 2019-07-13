@@ -17,7 +17,7 @@
     <div class="operation-clock">
       <div class="big-clock">
         <div class="little-clock">
-          <i class="fas fa-play start-icon"></i>
+          <i class="fas fa-play start-icon" @click="$router.push('/')"></i>
         </div>
       </div>
       <p class="time">

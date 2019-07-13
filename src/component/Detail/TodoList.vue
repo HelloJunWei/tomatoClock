@@ -8,16 +8,36 @@
       </v-text-field>
     </div>
     <div class="todo">
-      <div class="todo-bar" @click="is_open = !is_open">
+      <div class="list-bar" @click="is_open = !is_open">
         <span>TO-DO</span>
         <i class="fas fa-sort-up open-icon" :class="{ 'is-open': is_open }"></i>
       </div>
       <div class="list">
         <div class="list-detail">
-          a
+          <i class="far fa-circle circle-icon"></i>
+          <span>todo1</span>
+          <i class="far fa-play-circle play-circle"></i>
         </div>
         <div class="list-detail">
-          a
+          <i class="far fa-circle circle-icon"></i>
+          <span>todo2</span>
+          <i class="far fa-play-circle play-circle"></i>
+        </div>
+      </div>
+    </div>
+    <div class="done">
+      <div class="list-bar" @click="is_open = !is_open">
+        <span>DONE</span>
+        <i class="fas fa-sort-up open-icon" :class="{ 'is-open': is_open }"></i>
+      </div>
+      <div class="list">
+        <div class="list-detail">
+          <i class="far fa-check-circle circle-icon"></i>
+          <span class="done-text">done1</span>
+        </div>
+        <div class="list-detail">
+          <i class="far fa-check-circle circle-icon"></i>
+          <span class="done-text">done2</span>
         </div>
       </div>
     </div>
@@ -51,34 +71,50 @@ export default {
     color: #FF4384 !important
 .todo
   margin-top: 48px
-  .todo-bar
-    height: 44px
-    cursor: pointer
-    background-color: #335A83
+.list-bar
+  height: 44px
+  cursor: pointer
+  background-color: rgba(255, 255, 255, .2)
+  display: flex
+  justify-content: space-between
+  align-items: center
+  span
+    margin-left: 16px
+    color: white
+    font-weight: 550
+    font-size: 24px
+  .open-icon
     display: flex
-    justify-content: space-between
-    align-items: center
+    margin-top: 7px
+    margin-right: 16px
+    color: white
+    font-weight: 550
+    font-size: 24px
+    transition: .3s
+  .is-open
+    transform: rotate(180deg) translateY(10px)
+.list
+  height: 190px
+  overflow: scroll
+  .list-detail
+    margin-top: 15px
+    .circle-icon
+      font-size: 20px
+      cursor: pointer
     span
-      margin-left: 16px
-      color: white
+      margin-left: 5px
+      font-size: 16px
       font-weight: 550
-      font-size: 24px
-    .open-icon
-      display: flex
-      margin-top: 7px
-      margin-right: 16px
+    .done-text
+      text-decoration: line-through  
+    .play-circle
+      cursor: pointer
+      font-size: 20px
       color: white
-      font-weight: 550
-      font-size: 24px
-      transition: .3s
-    .is-open
-      transform: rotate(180deg) translateY(10px)
-  .list
-    height: 190px
-    overflow: scroll
-    .list-detail
-      &.list-detail
-        color: white
-        margin-top: 5px
-        border-bottom: 3px solid rgba(0, 0, 0, .2)
+      float: right  
+    &.list-detail
+      color: white
+      border-bottom: 1px solid rgba(255, 255, 255, .2)
+.done
+  margin-top: 100px
 </style>
