@@ -2,7 +2,7 @@
   <div class="clock-block">
     <div class="big-clock">
       <div class="little-clock">
-        <i class="fas fa-play-circle start-icon"></i>
+        <i class="fas fa-play-circle start-icon" @click="start"></i>
       </div>
     </div>
   </div>
@@ -33,6 +33,9 @@ export default {
       } else {
         this.right = '174px'
       }
+    },
+    start () {
+      helper().error('尚未實作')
     }
   }
 }

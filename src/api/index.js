@@ -4,13 +4,16 @@ const fetchTodo = new Promise((resolve) => {
   setTimeout(() => {
     resolve([
       {
-        title: 'TODO 1'
+        title: 'TODO 1',
+        tomato: 0
       },
       {
-        title: 'TODO 2'
+        title: 'TODO 2',
+        tomato: 0
       },
       {
-        title: 'TODO 3'
+        title: 'TODO 3',
+        tomato: 0
       }
     ])
   }, 0)

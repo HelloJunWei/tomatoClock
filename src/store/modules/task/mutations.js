@@ -12,8 +12,13 @@ const addTodo = (state, data) => {
     title: data
   })
 }
+const delTodo = (state, data) => {
+  state.todo.splice(data.index, 1)
+  state.done.push(data.obj)
+}
 export default {
   setTodo,
   setDone,
-  addTodo
+  addTodo,
+  delTodo
 }

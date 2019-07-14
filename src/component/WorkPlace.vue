@@ -11,8 +11,8 @@
         </v-flex>
       </v-flex>
       <v-flex lg12 todo-side>
-        <p class="big-title">
-          {{ todo_list[0].title }}
+        <p class="big-title" @click="delTodo(todo_list[0], 0)">
+          {{ checkTodo }}
         </p>
         <v-flex lg12>
           <p class="clock">
@@ -21,7 +21,7 @@
         </v-flex>
         <v-flex lg6 todo-list-side>
           <v-flex todo-list v-for="(obj, index) in todo_list.slice(1)" :key="index">
-            <v-checkbox value="Google" color="#003164" class="checkbox-h">
+            <v-checkbox color="#003164" class="checkbox-h">
               <template v-slot:label>
                 <v-flex todo-single>
                   {{ obj.title }}
@@ -85,6 +85,7 @@ export default {
 .todo-side{
   margin-top: 145px;
   .big-title{
+    cursor: pointer;
     &::before{
       display: inline-block;
       position: relative;

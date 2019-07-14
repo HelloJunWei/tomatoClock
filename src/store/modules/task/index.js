@@ -4,11 +4,13 @@ import getters from './getters'
 const state = {
   todo: [
     {
-      title: 'default'
+      title: 'default',
+      tomato: 0
     }
   ],
   done: [{
-    title: 'default'
+    title: 'default',
+    tomato: 0
   }]
 }
 

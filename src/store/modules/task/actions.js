@@ -29,10 +29,18 @@ const addTodo = ({ commit }, data) => {
     commit('addTodo', data)
     resolve()
   })
-} 
- 
+}
+const delTodo = ({ commit }, { index, obj })  => {
+  return new Promise((resolve) => {
+    commit('delTodo', { index, obj })
+    resolve()
+  })
+}
+
+
 export default {
   getTodo,
   getDone,
-  addTodo
+  addTodo,
+  delTodo
 }

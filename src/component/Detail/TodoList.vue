@@ -14,7 +14,7 @@
       </div>
       <div class="list">
         <div class="list-detail" v-for="(obj, index) in todo_list" :key="index">
-          <i class="far fa-circle circle-icon"></i>
+          <i class="far fa-circle circle-icon" @click="delTodo(obj, index)"></i>
           <span>{{ obj.title }}</span>
           <i class="far fa-play-circle play-circle"></i>
         </div>

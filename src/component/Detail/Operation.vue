@@ -24,15 +24,16 @@
         25 : 00
       </p>
       <p class="todo">
-        {{ todoList[0].title }}
+        {{ checkTodo }}
       </p>
     </div>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import mixin from '../mixins'
 export default {
+  mixins: [mixin],
   data () {
     return {
       todo: true,
@@ -41,10 +42,6 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('task', {
-      todoList: 'getTodo',
-      doneList: 'getDone'
-    })
   },
   mounted () {
     this.changeColor(this.$route.name)
