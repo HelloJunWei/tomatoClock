@@ -1,9 +1,9 @@
 <template>
   <div class="todo-list">
     <div>
-      <v-text-field label="ADD A NEW MISSION" background-color="white" color="#FF4384" solo class="text-input">
+      <v-text-field v-model="new_mission" label="ADD A NEW MISSION" background-color="white" color="#FF4384" solo class="text-input">
         <template v-slot:append>
-          <i class="fas fa-plus icon"></i>
+          <i class="fas fa-plus icon" @click="addTodoList"></i>
         </template>
       </v-text-field>
     </div>
@@ -37,18 +37,14 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import mixin from '../mixins'
 export default {
+  mixins: [mixin],
   data () {
     return {
-      is_open: false,
-      is_open_done: false
+      is_open: true,
+      is_open_done: true
     }
-  },
-  computed: {
-    ...mapGetters('task', {
-      todo_list: 'getTodo',
-      done_list: 'getDone'
-    })
   },
   mounted () {
   },
