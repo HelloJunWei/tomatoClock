@@ -24,22 +24,27 @@
         25 : 00
       </p>
       <p class="todo">
-        the First thing to do today
+        {{ todoList[0].title }}
       </p>
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
-  components: {
-  },
   data () {
     return {
       todo: true,
       analytics: false,
       ringtones: false
     }
+  },
+  computed: {
+    ...mapGetters('task', {
+      todoList: 'getTodo',
+      doneList: 'getDone'
+    })
   },
   mounted () {
     this.changeColor(this.$route.name)

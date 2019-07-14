@@ -13,31 +13,22 @@
         <i class="fas fa-sort-up open-icon" :class="{ 'is-open': is_open }"></i>
       </div>
       <div class="list">
-        <div class="list-detail">
+        <div class="list-detail" v-for="(obj, index) in todo_list" :key="index">
           <i class="far fa-circle circle-icon"></i>
-          <span>todo1</span>
-          <i class="far fa-play-circle play-circle"></i>
-        </div>
-        <div class="list-detail">
-          <i class="far fa-circle circle-icon"></i>
-          <span>todo2</span>
+          <span>{{ obj.title }}</span>
           <i class="far fa-play-circle play-circle"></i>
         </div>
       </div>
     </div>
     <div class="done">
-      <div class="list-bar" @click="is_open = !is_open">
+      <div class="list-bar" @click="is_open_done = !is_open_done">
         <span>DONE</span>
-        <i class="fas fa-sort-up open-icon" :class="{ 'is-open': is_open }"></i>
+        <i class="fas fa-sort-up open-icon" :class="{ 'is-open': is_open_done }"></i>
       </div>
       <div class="list">
-        <div class="list-detail">
+        <div class="list-detail" v-for="(obj, index) in done_list" :key="index">
           <i class="far fa-check-circle circle-icon"></i>
-          <span class="done-text">done1</span>
-        </div>
-        <div class="list-detail">
-          <i class="far fa-check-circle circle-icon"></i>
-          <span class="done-text">done2</span>
+          <span class="done-text">{{ obj.title }}</span>
         </div>
       </div>
     </div>
@@ -45,13 +36,19 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
-  components: {
-  },
   data () {
     return {
-      is_open: false
+      is_open: false,
+      is_open_done: false
     }
+  },
+  computed: {
+    ...mapGetters('task', {
+      todo_list: 'getTodo',
+      done_list: 'getDone'
+    })
   },
   mounted () {
   },
