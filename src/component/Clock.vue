@@ -14,11 +14,26 @@ export default {
   },
   data () {
     return {
+      right: '174px'
     }
   },
   mounted () {
+    const that = this
+    // that.calcRight()
+    // window.onresize = function tmp () {
+    //   that.calcRight()
+    // }
   },
   methods: {
+    calcRight () {
+      let width = window.innerWidth
+      console.log(width)
+      if (width > 1280) {
+        this.right = '174px'
+      } else {
+        this.right = '174px'
+      }
+    }
   }
 }
 </script>
@@ -27,7 +42,7 @@ export default {
   .clock-block
     position: absolute
     top: 180px
-    right: 274px
+    right: 174px
     width: 540px
     height: 540px
     .big-clock

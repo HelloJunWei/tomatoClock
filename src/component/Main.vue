@@ -3,7 +3,7 @@
     <v-container px-0 py-0 width-100 pb-0>
       <v-layout row height-100 px-0 py-0>
         <v-flex height-100 pink-color></v-flex>
-        <v-flex  height-100 d-flex width-1280>
+        <div  class="height-100 d-flex width-1280">
           <v-flex left-side pink-color height-100>
             <app-work-place></app-work-place>
           </v-flex>
@@ -11,7 +11,7 @@
             <app-icon-place></app-icon-place>
           </v-flex>
           <app-clock></app-clock>
-        </v-flex>
+        </div>
         <v-flex  height-100 blue-color></v-flex>
       </v-layout>
     </v-container>
@@ -46,7 +46,7 @@ export default {
 .app{
   background-color: transparent;
   margin: 0 auto;
-  height: 800px;
+  // height: 800px;
 }
 .left-side{
   width: calc(1280px - 450px);
@@ -63,6 +63,7 @@ export default {
 .width-1280{
   position: relative;
   width: 1280px;
+  overflow: scroll;
 }
 .pink-color{
   background-color: #FFEDF7;
