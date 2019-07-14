@@ -20,10 +20,20 @@
   // myLib.__proto__ === myLib.Init.prototype === myLib.prototype
   myLib.prototype = {
     _alert: function (msg) {
-      swal({ icon: 'success', text: msg })
+      swal.fire({
+        type: 'success',
+        title: msg,
+        showConfirmButton: true,
+        timer: 2500
+      })
     },
     error: function (msg) {
-      swal({ icon: 'error', text: msg })
+      swal.fire({
+        type: 'error',
+        title: msg,
+        confirmButtonColor: '#F93E3F',
+        confirmButtonText: '取消'
+      })
     },
   }
   myLib.Init = function () {}

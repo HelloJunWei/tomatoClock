@@ -7,10 +7,6 @@ import appDetail from '../../component/Detail/Detail'
 export default {
   components: {
     appDetail
-  },
-  mounted () {
-    this.$store.dispatch('task/getTodo')
-    this.$store.dispatch('task/getDone')
   }
 }
 </script>

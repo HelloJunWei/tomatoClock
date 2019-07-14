@@ -7,7 +7,13 @@ const setDone = (state, data) => {
   state.done = data.slice()
 }
 
+const addTodo = (state, data) => {
+  state.todo.push({
+    title: data
+  })
+}
 export default {
   setTodo,
-  setDone
+  setDone,
+  addTodo
 }

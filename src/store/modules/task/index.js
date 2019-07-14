@@ -2,8 +2,14 @@ import actions from './actions'
 import mutations from './mutations'
 import getters from './getters'
 const state = {
-  todo: [],
-  done: []
+  todo: [
+    {
+      title: 'default'
+    }
+  ],
+  done: [{
+    title: 'default'
+  }]
 }
 
 export default {

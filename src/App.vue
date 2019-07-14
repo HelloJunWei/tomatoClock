@@ -18,6 +18,10 @@ export default {
       isRouterAlive: true
     }
   },
+  beforeCreate () {
+    this.$store.dispatch('task/getTodo')
+    this.$store.dispatch('task/getDone')
+  },
   methods: {
     reload () {
       this.isRouterAlive = false

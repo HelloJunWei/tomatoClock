@@ -3,16 +3,16 @@
     <v-layout row wrap>
       <v-flex lg12>
         <v-flex lg6>
-          <v-text-field label="ADD A NEW MISSION" background-color="white" color="#FF4384" solo class="text-input">
+          <v-text-field v-model="new_mission" label="ADD A NEW MISSION" background-color="white" color="#FF4384" solo class="text-input">
             <template v-slot:append>
-              <i class="fas fa-plus icon"></i>
+              <i class="fas fa-plus icon" @click="addTodoList"></i>
             </template>
           </v-text-field>
         </v-flex>
       </v-flex>
       <v-flex lg12 todo-side>
         <p class="big-title">
-          the First thing to do today
+          {{ todo_list[0].title }}
         </p>
         <v-flex lg12>
           <p class="clock">
@@ -20,11 +20,11 @@
           </p>
         </v-flex>
         <v-flex lg6 todo-list-side>
-          <v-flex todo-list>
+          <v-flex todo-list v-for="(obj, index) in todo_list.slice(1)" :key="index">
             <v-checkbox value="Google" color="#003164" class="checkbox-h">
               <template v-slot:label>
                 <v-flex todo-single>
-                  the second thing to do today
+                  {{ obj.title }}
                   <span class="start-icon">
                     <i class="far fa-play-circle"></i>
                   </span>
@@ -32,31 +32,7 @@
               </template>
             </v-checkbox>
           </v-flex>
-          <v-flex todo-list>
-            <v-checkbox value="Google" color="#003164" class="checkbox-h">
-              <template v-slot:label>
-                <v-flex todo-single>
-                  the second thing to do today
-                  <span class="start-icon">
-                    <i class="far fa-play-circle"></i>
-                  </span>
-                </v-flex>
-              </template>
-            </v-checkbox>
-          </v-flex>
-          <v-flex todo-list>
-            <v-checkbox value="Google" color="#003164" class="checkbox-h">
-              <template v-slot:label>
-                <v-flex todo-single>
-                  the second thing to do today
-                  <span class="start-icon">
-                    <i class="far fa-play-circle"></i>
-                  </span>
-                </v-flex>
-              </template>
-            </v-checkbox>
-          </v-flex>
-          <span class="more hover-line">
+          <span class="more hover-line" @click="$router.push('/detail/todo')">
             MORE
           </span>
         </v-flex>
@@ -66,18 +42,32 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
-  components: {
-
-  },
   data () {
     return {
-      radios: ''
+      new_mission: '',
     }
+  },
+  computed: {
+    ...mapGetters('task',{
+      todo_list: 'getTodo',
+    })
   },
   mounted () {
   },
   methods: {
+    addTodoList () {
+      if(!this.new_mission) {
+        helper().error('請輸入名稱')
+        return false
+      }
+      this.$store.dispatch('task/addTodo', this.new_mission)
+        .then(() => {
+          helper()._alert('新增成功!')
+          this.new_mission = ''
+        })
+    }
   }
 }
 </script>
@@ -132,6 +122,7 @@ export default {
   }
   .todo-list-side{
     margin-top: 110px;
+    margin-bottom: 50px;
     .todo-list{
       border-bottom: 1px solid;
       width: 445px;

@@ -26,6 +26,7 @@ module.exports = {
   plugins: [
     new webpack.ProvidePlugin({
       dayjs: 'dayjs',
+      swal: 'sweetalert2',
       helper: path.resolve(__dirname, '../src/utils/lib.js')
     }),
     new VueLoaderPlugin(),

@@ -24,7 +24,15 @@ const getDone = ({ commit }) => {
   })
 }
 
+const addTodo = ({ commit }, data) => {
+  return new Promise((resolve) => {
+    commit('addTodo', data)
+    resolve()
+  })
+} 
+ 
 export default {
   getTodo,
-  getDone
+  getDone,
+  addTodo
 }
