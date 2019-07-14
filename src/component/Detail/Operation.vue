@@ -137,6 +137,8 @@ export default {
           transform: translateX(15%)
           &:hover
             transform: scale(1.2) translateX(2px)
+          &:active
+            transform: scale(.9) translateX(2px)
     .time
       font-size: 55px
       margin: 0

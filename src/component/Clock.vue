@@ -27,7 +27,7 @@ export default {
   .clock-block
     position: absolute
     top: 180px
-    right: 180px
+    right: 274px
     width: 540px
     height: 540px
     .big-clock
@@ -53,4 +53,6 @@ export default {
         transition: .2s
         &:hover
           transform: scale(1.2)
+        &:active
+          transform: scale(.9)
 </style>

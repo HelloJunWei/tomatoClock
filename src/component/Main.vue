@@ -63,7 +63,6 @@ export default {
 .width-1280{
   position: relative;
   width: 1280px;
-  border: 1px solid;
 }
 .pink-color{
   background-color: #FFEDF7;

@@ -68,7 +68,6 @@ export default {
 .width-1280{
   position: relative;
   width: 1280px;
-  border: 1px solid;
 }
 .blue-color{
   background-color: #003164;

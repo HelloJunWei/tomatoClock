@@ -39,7 +39,7 @@ export default {
   .logo
     writing-mode: vertical-lr
     font-size: 24px
-    margin-bottom: 48px
+    // margin-bottom: px
     font-weight: 550
 
 </style>
